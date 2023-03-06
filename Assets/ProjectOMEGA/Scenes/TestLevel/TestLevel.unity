@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1111448460}
+  m_Follow: {fileID: 1270852065}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 6
@@ -360,7 +360,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6960168, y: 1}
+    m_SensorSize: {x: 2.663492, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -21581,11 +21581,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d07806b2195ac847aedab8a10b9c548, type: 3}
---- !u!4 &1111448460 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7380170331898043782, guid: 6d07806b2195ac847aedab8a10b9c548, type: 3}
-  m_PrefabInstance: {fileID: 1111448459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1139453380
 GameObject:
   m_ObjectHideFlags: 0
@@ -22851,6 +22846,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8733486297620373826, guid: ca1e5955549e5484fb2038c4c8c9acda, type: 3}
   m_PrefabInstance: {fileID: 221935480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1270852065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7380170331898043782, guid: 6d07806b2195ac847aedab8a10b9c548, type: 3}
+  m_PrefabInstance: {fileID: 1919267849}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1280259021 stripped
 Transform:
@@ -24430,6 +24430,10 @@ PrefabInstance:
     - target: {fileID: 7380170331898043803, guid: 6d07806b2195ac847aedab8a10b9c548, type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380170331898043803, guid: 6d07806b2195ac847aedab8a10b9c548, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d07806b2195ac847aedab8a10b9c548, type: 3}
