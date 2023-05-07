@@ -17,6 +17,7 @@ public class ComboAttack : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         bool comboPressValid = animator.GetFloat("comboPressValid") > 0.5f;
+        Debug.Log("combo " + comboPressValid);
 
         if (animator.GetBool("attackPressed"))
         {
