@@ -99,6 +99,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * (jumpForce + 2);
         }
+
+        if (other.collider.gameObject.layer == 8)
+        {
+            Destroy(other.collider.gameObject);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other)
