@@ -99,11 +99,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * (jumpForce + 2);
         }
-
-        if (other.collider.gameObject.layer == 8)
-        {
-            Destroy(other.collider.gameObject);
-        }
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -119,6 +114,18 @@ public class PlayerController : MonoBehaviour
         if (other.collider.gameObject.tag == "Platform")
         {
             transform.SetParent(null);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 8)
+        {
+            collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            collision.gameObject.GetComponent<ParticleSystem>().Play();
+
+
+            //Destroy(other.collider.gameObject);
         }
     }
 
