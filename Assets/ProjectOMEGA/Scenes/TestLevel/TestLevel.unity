@@ -360,7 +360,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.6960168, y: 1}
+    m_SensorSize: {x: 2.5057805, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -25235,6 +25235,18 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 10d8c71d488574a4990b530c0fc46cf3, type: 3}
+    - target: {fileID: 1165351895853248804, guid: 0d7223e90f0342e43ae216086f3c4320, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165351895853248804, guid: 0d7223e90f0342e43ae216086f3c4320, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1165351895853248804, guid: 0d7223e90f0342e43ae216086f3c4320, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1221795082143362573, guid: 0d7223e90f0342e43ae216086f3c4320, type: 3}
       propertyPath: m_RootOrder
       value: 42
