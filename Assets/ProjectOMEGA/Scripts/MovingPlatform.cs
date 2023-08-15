@@ -23,32 +23,29 @@ public class MovingPlatform : MonoBehaviour
     
     void FixedUpdate()
     {
+        //if (rb.position.x >= maxX)
+        //{            
+        //    DirectionX *= -1;
+        //}
+        //else if (rb.position.x <= minX)
+        //{            
+        //    DirectionX *= -1;
+        //}
+
+        //Vector2 moveDirection = new((DirectionX * Speed), 0);
+        //rb.velocity = moveDirection;
+
         if (rb.position.x >= maxX)
-        {            
+        {
             DirectionX *= -1;
         }
         else if (rb.position.x <= minX)
-        {            
+        {
             DirectionX *= -1;
         }
 
         Vector2 moveDirection = new((DirectionX * Speed), 0);
-        rb.velocity = moveDirection;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-            collision.gameObject.transform.SetParent(this.transform);
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 6)
-        {
-            collision.gameObject.transform.SetParent(null);
-        }
+        
+        transform.Translate(moveDirection);
     }
 }
