@@ -360,7 +360,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1271677, y: 1}
+    m_SensorSize: {x: 2.5057805, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -6298,17 +6298,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2957309115295960376, guid: a1c22934979d21447b456926d5ba248e, type: 3}
-      propertyPath: Speed
-      value: 0.04
-      objectReference: {fileID: 0}
     - target: {fileID: 2957309115295960377, guid: a1c22934979d21447b456926d5ba248e, type: 3}
       propertyPath: m_Name
       value: MovingPlatform (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2957309115295960379, guid: a1c22934979d21447b456926d5ba248e, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2957309115295960380, guid: a1c22934979d21447b456926d5ba248e, type: 3}
       propertyPath: m_RootOrder

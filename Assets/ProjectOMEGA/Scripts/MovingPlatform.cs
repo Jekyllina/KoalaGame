@@ -48,4 +48,24 @@ public class MovingPlatform : MonoBehaviour
         
         transform.Translate(moveDirection);
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 6 && collision.transform.position.y > transform.position.y)
+        {
+            collision.gameObject.transform.SetParent(this.transform);
+        }
+        else            
+        {
+            collision.gameObject.transform.SetParent(null);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            collision.gameObject.transform.SetParent(null);
+        }
+    }
 }
