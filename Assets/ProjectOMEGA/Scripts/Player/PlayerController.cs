@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private float damageTime = 0;
     private float comboTime = 0;
     private int comboCount = 0;
+    private Vector2 startPos = Vector2.zero;
 
     #region Unity Methods
 
@@ -53,14 +54,18 @@ public class PlayerController : MonoBehaviour
         pc = GetComponent<PlayerCharacter>();
         canPlay = true;
         speed = moveSpeed;
+        startPos = transform.position;
     }
     
     void Update()
     {
         if (transform.position.y < -5.0f)
-            isDead = true;
+        {
+            transform.position = startPos;
+            //isDead = true;
+        }
 
-        if(canPlay)
+        if (canPlay)
         {
             Move();
             CheckFallDamage();            
