@@ -129,8 +129,7 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             collision.gameObject.GetComponent<ParticleSystem>().Play();
 
-
-            //Destroy(other.collider.gameObject);
+            StartCoroutine(DestroyThis(collision.gameObject));            
         }
     }
 
@@ -155,6 +154,12 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
+
+    IEnumerator DestroyThis(GameObject obj)
+    {       
+        yield return new WaitForSeconds(1f);
+        Destroy(obj);
+    }
 
     private void CheckFallDamage()
     {
