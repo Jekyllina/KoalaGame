@@ -34,5 +34,14 @@ public class EnemyBase : MonoBehaviour
 
         Vector2 moveDirection = new((DirectionX * Speed), 0);
         rb.velocity = moveDirection;
+
+        if (rb.velocity.x < -.1f)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 180, transform.rotation.z));
+        }
+        else if (rb.velocity.x > .1f)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 0, transform.rotation.z));
+        }
     }
 }
