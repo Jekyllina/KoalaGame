@@ -207,10 +207,10 @@ public class PlayerController : MonoBehaviour
         else
             running = 0;
 
-        if (running >= 1.5)
-            moveSpeed = speed + 3;
-        else if (running < 1.5 && running > 0)
-            moveSpeed = speed;
+        //if (running >= 1.5)
+        //    moveSpeed = speed + 3;
+        //else if (running < 1.5 && running > 0)
+        //    moveSpeed = speed;
 
         if(isGrounded)
             pc.SkinManager.currentSkin.GetAnimator().SetFloat(speedAnimationParameter, running);
