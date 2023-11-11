@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2957309115295960381}
   - component: {fileID: 2957309115295960378}
   - component: {fileID: 2957309115295960379}
-  - component: {fileID: 2957309115295960376}
+  - component: {fileID: 7752245918092288580}
   m_Layer: 0
-  m_Name: MovingPlatform
+  m_Name: MovingPlatformUp
   m_TagString: Platform
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 5
 --- !u!61 &2957309115295960379
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5184331, y: 0.52325976}
   m_EdgeRadius: 0
---- !u!114 &2957309115295960376
+--- !u!114 &7752245918092288580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,9 +143,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2957309115295960377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdba63dc0e0893145b9a9481f45fbad4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e1c04c91d6b7b146b736dac29faf1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxX: 2
-  MinX: 2
+  MaxY: 2
+  MinY: 2
   Speed: 0.04

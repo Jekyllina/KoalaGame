@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class PlayerCharacter : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] private float health = 100;
+    [SerializeField] private float health = 3;
     private float maxHealth;
 
     [Header("Skins")]
@@ -25,7 +25,7 @@ public class PlayerCharacter : MonoBehaviour
     #region Health
     public void GetDamage(float dmg)
     {
-        health -= dmg;
+        health -= 1;
 
         if (health <= 0)
         {
@@ -41,7 +41,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void Heal(int heal)
     {
-        health += heal;
+        health += 1;
 
         if (health >= maxHealth)
         {

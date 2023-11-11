@@ -2,23 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatformUp : MonoBehaviour
 {
-    public float MaxX = 4;
-    public float MinX = 4;
+    public float MaxY = 4;
+    public float MinY = 4;
     public float Speed = 3;
 
     Rigidbody2D rb;
-    float maxX;
-    float minX;
-    int DirectionX = 1;
+    float maxY;
+    float minY;
+    int DirectionY = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        maxX = rb.position.x + MaxX;
-        minX = rb.position.x - MinX;       
+        maxY = rb.position.y + MaxY;
+        minY = rb.position.y - MinY;       
     }    
     
     void FixedUpdate()
@@ -35,16 +35,16 @@ public class MovingPlatform : MonoBehaviour
         //Vector2 moveDirection = new((DirectionX * Speed), 0);
         //rb.velocity = moveDirection;
 
-        if (rb.position.x >= maxX)
+        if (rb.position.y >= maxY)
         {
-            DirectionX *= -1;
+            DirectionY *= -1;
         }
-        else if (rb.position.x <= minX)
+        else if (rb.position.y <= minY)
         {
-            DirectionX *= -1;
+            DirectionY *= -1;
         }
 
-        Vector2 moveDirection = new((DirectionX * Speed), 0);
+        Vector2 moveDirection = new(0, (DirectionY * Speed));
         
         transform.Translate(moveDirection);
     }
