@@ -7223,6 +7223,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &460152238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8295998320012138614, guid: 67eaf71a585bb4c41a60267c54028016,
+    type: 3}
+  m_PrefabInstance: {fileID: 961629898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d13f7178b11685448f4095a0b0ca2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &466244495
 GameObject:
   m_ObjectHideFlags: 0
@@ -32303,6 +32315,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1311478755859475554, guid: 6d07806b2195ac847aedab8a10b9c548,
+        type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5207016840542263127, guid: 6d07806b2195ac847aedab8a10b9c548,
         type: 3}
       propertyPath: m_Controller
@@ -32373,6 +32390,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7380170331898043783, guid: 6d07806b2195ac847aedab8a10b9c548,
+        type: 3}
+      propertyPath: hBar
+      value: 
+      objectReference: {fileID: 460152238}
     - target: {fileID: 7380170331898043783, guid: 6d07806b2195ac847aedab8a10b9c548,
         type: 3}
       propertyPath: maxJumps

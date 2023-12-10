@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private PlayerCharacter pc;
+    public Healthbar hBar;
     public int jumps = 0;
     public bool isGrounded;
     private bool wasGrounded;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     private float damageTime = 0;
     private float comboTime = 0;
     private int comboCount = 0;
+    private bool isHit = false;
     private Vector2 startPos = Vector2.zero;
 
     #region Unity Methods
@@ -52,6 +54,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         pc = GetComponent<PlayerCharacter>();
+        //hBar = GetComponent<Healthbar>();
+
         canPlay = true;
         speed = moveSpeed;
         startPos = transform.position;
@@ -89,6 +93,14 @@ public class PlayerController : MonoBehaviour
                 canPlay = true;
             }
         }
+
+        if(isHit)
+        {
+
+        }
+
+        if (hBar.GetComponent<Healthbar>().healthPointsValue <= 0 && canPlay)
+            isDead = true;
 
         if (isDead)
         {
@@ -182,10 +194,12 @@ public class PlayerController : MonoBehaviour
         if(isGrounded)
         {
             if (fallTime > 0.7f)
-            {                
-                float damage = fallTime * 80;
-                Debug.Log($"Damage: {damage}");
-                pc.GetDamage(damage);
+            {
+                //float damage = fallTime * 80;
+                hBar.GetComponent<Healthbar>().healthPointsValue--;
+
+                Debug.Log($"Damage fall, " + hBar.GetComponent<Healthbar>().healthPointsValue);
+                pc.GetDamage();
             }
 
             fallTime = 0;

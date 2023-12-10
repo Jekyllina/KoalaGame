@@ -23,10 +23,10 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     #region Health
-    public void GetDamage(float dmg)
+    public void GetDamage()
     {
         health -= 1;
-
+        
         if (health <= 0)
         {
             health = 0;

@@ -8,7 +8,7 @@ public class Healthbar : MonoBehaviour
 {
     [SerializeField] private List<Image> healthPoints;
 
-    [SerializeField] private int healthPointsValue = 3;
+    [SerializeField] public int healthPointsValue = 3;
 
     private void Update()
     {
