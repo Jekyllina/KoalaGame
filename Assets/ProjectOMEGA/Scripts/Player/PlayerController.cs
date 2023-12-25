@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y < -5.0f)
         {
             transform.position = startPos;
+            hBar.GetComponent<Healthbar>().healthPointsValue--;
             //isDead = true;
         }
 
@@ -115,6 +116,7 @@ public class PlayerController : MonoBehaviour
         if (other.collider.gameObject.layer == 7 && !isGrounded)
         {
             rb.velocity = Vector2.up * (jumpForce + 2);
+            jumps = 1;
         }
     }
 
@@ -174,26 +176,13 @@ public class PlayerController : MonoBehaviour
     }
 
     private void CheckFallDamage()
-    {
-        //if (!wasGrounded && isGrounded)
-        //{
-        //    if (rb.velocity.y < -fallDamageStart)
-        //    {
-        //        // Apply fall damage
-        //        float damagePerc = Mathf.Abs(rb.velocity.y + fallDamageStart) / fallDamageKill;
-        //        float damage = pc.GetMaxHealth() * damagePerc;
-        //        Debug.Log($"Damage: {damage}");
-        //        pc.GetDamage(damage);
-        //    }
-        //    else { Debug.Log("It's not getting damage"); }
-        //}        
-
+    { 
         if (rb.velocity.y < 0)
             fallTime += Time.deltaTime;
 
         if(isGrounded)
         {
-            if (fallTime > 0.7f)
+            if (fallTime > 1f)
             {
                 //float damage = fallTime * 80;
                 hBar.GetComponent<Healthbar>().healthPointsValue--;

@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3ad36c5060fd8e54dbb3d7c4f5299f9c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1725f63a4cf735e46a5f232d9effa485, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 7188067151695590675}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f5bcf05e09ecb4e4ea3a3ef22948b6fd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1ce92066dde43944281835fddaaac754, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 7380170331898043803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.47, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7380170332236842217}
@@ -170,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.023325086, y: -0.05131519}
+  m_Offset: {x: 0.000318408, y: 0.3608005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -181,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2145908, y: 2.0839703}
+  m_Size: {x: 0.9163697, y: 2.259698}
   m_EdgeRadius: 0
 --- !u!50 &7380170331898043800
 Rigidbody2D:
@@ -216,10 +216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836ffc6a3fce6554383a54bed6207eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 6
   jumpForce: 9
   nextJumpScale: 1
-  maxJumps: 1
+  maxJumps: 2
   fallDamageStart: 15
   fallDamageKill: 30
   groundCheck: {fileID: 7380170332236842217}
@@ -273,6 +273,7 @@ MonoBehaviour:
   IsDamaged: 0
   DamageStunTime: 0.4
   DamageSprite: {fileID: 21300000, guid: c9770efbecae1f545beddce772c4ca71, type: 3}
+  hBar: {fileID: 0}
   jumps: 0
   isGrounded: 0
   fallTime: 0
@@ -289,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a2643093f54b847a882ca26a08ede2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 3
   skinManager: {fileID: 1111448465}
   baseSkinID: BaseSkin
 --- !u!1 &7380170332236842216
@@ -316,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7380170332236842216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.107, z: 0}
+  m_LocalPosition: {x: 0, y: -0.761, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
