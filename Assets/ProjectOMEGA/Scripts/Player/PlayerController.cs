@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         if (canPlay)
         {
             Move();
-            CheckFallDamage();            
+            //CheckFallDamage();            
         }
 
         if (IsDamaged)
