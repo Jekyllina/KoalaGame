@@ -48,6 +48,15 @@ public class PlayerController : MonoBehaviour
     private bool isHit = false;
     private Vector2 startPos = Vector2.zero;
 
+    public Transform AttackPoint;
+    public LayerMask enemyLayers;
+    public int damage = 1;
+    private float playerAttackRange = 2f;
+    private GameObject[] enemies;
+    private GameObject attackArea;
+    private float timer = 0f;
+    private float timeToAttack = 3f;
+
     #region Unity Methods
 
     void Start()
@@ -59,6 +68,8 @@ public class PlayerController : MonoBehaviour
         canPlay = true;
         speed = moveSpeed;
         startPos = transform.position;
+
+        attackArea = transform.GetChild(1).gameObject;
     }
     
     void Update()
@@ -249,7 +260,26 @@ public class PlayerController : MonoBehaviour
             Jump();
 
         if (isGrounded && InputManager.ATTACKBUTTON && comboCount <= 2)
+        {
             Attack();
+
+            if (timer <= 0f)
+            {
+                //Debug.Log("AttackPoint: " + AttackPoint);
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, playerAttackRange, enemyLayers);
+                //Debug.Log("hitEnemies: " + hitEnemies);
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    //Debug.Log("enemy: " + enemy);
+                    enemy.GetComponent<HealthManager>().TakeDamage(damage);
+                }
+                timer = timeToAttack;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
+        }            
     }
 
     void Jump()
