@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string speedAnimationParameter;
     [SerializeField] private AnimationCurve hitStunCurve;
     public bool IsDamaged;
-    public float DamageStunTime = 0.2f;
+    public float DamageStunTime = 0.4f;
     public Sprite DamageSprite;
 
     private Rigidbody2D rb;
@@ -45,17 +45,17 @@ public class PlayerController : MonoBehaviour
     private float damageTime = 0;
     private float comboTime = 0;
     private int comboCount = 0;
-    private bool isHit = false;
+    public bool isHit = false;
     private Vector2 startPos = Vector2.zero;
 
     public Transform AttackPoint;
     public LayerMask enemyLayers;
     public int damage = 1;
-    private float playerAttackRange = 2f;
+    private float playerAttackRange = 1.8f;
     private GameObject[] enemies;
     private GameObject attackArea;
     private float timer = 0f;
-    private float timeToAttack = 3f;
+    public float timeToAttack = 1.2f;
 
     #region Unity Methods
 
@@ -89,11 +89,15 @@ public class PlayerController : MonoBehaviour
 
         if (IsDamaged)
         {
-            transform.GetChild(1).GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = DamageSprite;
-            pc.SkinManager.currentSkin.GetAnimator().enabled = false;
-            canPlay = false;
+            if (canPlay)
+            {
+                transform.GetChild(1).GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = DamageSprite;
+                pc.SkinManager.currentSkin.GetAnimator().enabled = false;
 
-            //DA INSERIRE logica per non ricevere danni
+                hBar.GetComponent<Healthbar>().healthPointsValue--;
+            }
+
+            canPlay = false;            
 
             damageTime += Time.deltaTime;
             
@@ -108,7 +112,9 @@ public class PlayerController : MonoBehaviour
 
         if(isHit)
         {
-
+            pc.GetDamage();
+            isHit = false;
+            IsDamaged = true;
         }
 
         if (hBar.GetComponent<Healthbar>().healthPointsValue <= 0 && canPlay)
@@ -124,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.collider.gameObject.layer == 7 && !isGrounded)
+        if (other.collider.gameObject.layer == 11 && !isGrounded)
         {
             rb.velocity = Vector2.up * (jumpForce + 2);
             jumps = 1;
@@ -275,11 +281,9 @@ public class PlayerController : MonoBehaviour
                 }
                 timer = timeToAttack;
             }
-            else
-            {
-                timer -= Time.deltaTime;
-            }
-        }            
+        }
+
+        timer -= Time.deltaTime;
     }
 
     void Jump()

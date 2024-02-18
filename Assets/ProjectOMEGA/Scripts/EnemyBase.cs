@@ -44,4 +44,12 @@ public class EnemyBase : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 0, transform.rotation.z));
         }
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.gameObject.layer == 6)
+        {
+            other.collider.gameObject.GetComponent<PlayerController>().isHit = true;
+        }
+    }
 }
