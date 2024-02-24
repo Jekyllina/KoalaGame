@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4473010808575569903}
   - component: {fileID: 4473010808575569902}
   - component: {fileID: 4473010808575565841}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: BouncingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}

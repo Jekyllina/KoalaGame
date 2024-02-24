@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * (jumpForce + 2);
             jumps = 1;
+            pc.SkinManager.currentSkin.GetAnimator().SetTrigger("IsJumping");
         }
     }
 
@@ -158,6 +159,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.layer == 8)
         {
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            collision.gameObject.transform.GetChild(0).gameObject.active = false;
             collision.gameObject.GetComponent<ParticleSystem>().Play();
 
             StartCoroutine(DestroyThis(collision.gameObject));            
