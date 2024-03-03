@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string speedAnimationParameter;
     [SerializeField] private AnimationCurve hitStunCurve;
     public bool IsDamaged;
-    public float DamageStunTime = 0.4f;
+    public float DamageStunTime = 0.2f;
     public Sprite DamageSprite;
 
     private Rigidbody2D rb;
