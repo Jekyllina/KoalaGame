@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public bool IsDamaged;
     public float DamageStunTime = 0.2f;
     public Sprite DamageSprite;
+    public GameObject Sword;
 
     private Rigidbody2D rb;
     private PlayerCharacter pc;
@@ -110,7 +111,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(isHit)
+        if(pc.SkinManager.currentSkin.GetAnimator().GetCurrentAnimatorStateInfo(0).IsName("Attack1"))
+        {
+            Debug.Log("ciao");
+            Sword.SetActive(false);
+        }
+
+        if (isHit)
         {
             pc.GetDamage();
             isHit = false;
@@ -301,6 +308,7 @@ public class PlayerController : MonoBehaviour
         if (comboCount == 0 || comboCount == 1)
         {
             pc.SkinManager.currentSkin.GetAnimator().SetTrigger("comboAttack");
+            Sword.SetActive(true);
         }
         else if (comboCount == 2)
             comboCount = 0;
