@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     private GameObject[] enemies;
     private GameObject attackArea;
     private float timer = 0f;
-    public float timeToAttack = 1.2f;
+    public float timeToAttack = 0.45f;
 
     #region Unity Methods
 
@@ -286,13 +286,20 @@ public class PlayerController : MonoBehaviour
                 foreach (Collider2D enemy in hitEnemies)
                 {
                     //Debug.Log("enemy: " + enemy);
-                    enemy.GetComponent<HealthManager>().TakeDamage(damage);
+                    //enemy.GetComponent<HealthManager>().TakeDamage(damage);
+                    StartCoroutine(enemyTakeDamage(enemy));
                 }
                 timer = timeToAttack;
             }
         }
 
         timer -= Time.deltaTime;
+    }
+
+    IEnumerator enemyTakeDamage(Collider2D enemy)
+    {
+        yield return new WaitForSeconds(0.3f);
+        enemy.GetComponent<HealthManager>().TakeDamage(damage);
     }
 
     void Jump()
