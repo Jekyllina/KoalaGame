@@ -169,7 +169,14 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.transform.GetChild(0).gameObject.active = false;
             collision.gameObject.GetComponent<ParticleSystem>().Play();
 
-            StartCoroutine(DestroyThis(collision.gameObject));            
+            StartCoroutine(DestroyThis(collision.gameObject, 1));            
+        }
+
+        if (collision.gameObject.layer == 10)
+        {
+            collision.gameObject.transform.GetChild(0).gameObject.active = false;
+
+            StartCoroutine(DestroyThis(collision.gameObject, 0.1f));
         }
     }
 
@@ -195,9 +202,9 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    IEnumerator DestroyThis(GameObject obj)
+    IEnumerator DestroyThis(GameObject obj, float time)
     {       
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(time);
         Destroy(obj);
     }
 

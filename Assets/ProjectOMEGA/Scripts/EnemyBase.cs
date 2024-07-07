@@ -23,25 +23,33 @@ public class EnemyBase : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (rb.position.x >= maxX)
-        {            
-            DirectionX *= -1;
-        }
-        else if (rb.position.x <= minX)
-        {            
-            DirectionX *= -1;
+        if(!GetComponent<HealthManager>().isDead)
+        {
+            if (rb.position.x >= maxX)
+            {
+                DirectionX *= -1;
+            }
+            else if (rb.position.x <= minX)
+            {
+                DirectionX *= -1;
+            }
+
+            Vector2 moveDirection = new((DirectionX * Speed), 0);
+            rb.velocity = moveDirection;
+
+            if (rb.velocity.x < -.1f)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 180, transform.rotation.z));
+            }
+            else if (rb.velocity.x > .1f)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 0, transform.rotation.z));
+            }
         }
 
-        Vector2 moveDirection = new((DirectionX * Speed), 0);
-        rb.velocity = moveDirection;
-
-        if (rb.velocity.x < -.1f)
+        if (GetComponent<HealthManager>().isDead)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 180, transform.rotation.z));
-        }
-        else if (rb.velocity.x > .1f)
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 0, transform.rotation.z));
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
@@ -49,7 +57,8 @@ public class EnemyBase : MonoBehaviour
     {
         if (other.collider.gameObject.layer == 6)
         {
-            other.collider.gameObject.GetComponent<PlayerController>().isHit = true;
+            if (!GetComponent<HealthManager>().isDead)
+                other.collider.gameObject.GetComponent<PlayerController>().isHit = true;
         }
     }
 }
